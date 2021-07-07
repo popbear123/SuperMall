@@ -5,3 +5,14 @@ body {
   margin: 0;
   padding: 0;
 }
+
+a {
+  list-style: none;
+  text-decoration: none;
+  color: #666;
+}
+
+ul {
+  list-style: none;
+  text-decoration: none;
+}
