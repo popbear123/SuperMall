@@ -6,6 +6,7 @@
     <Scroll class="scroll" ref="scroll">
       <CartList class="cart-list"></CartList>
     </Scroll>
+    <BottomBar></BottomBar>
   </div>
 </template>
 
@@ -14,6 +15,7 @@ import Nav from 'components/common/navbar/Navbar'
 import Scroll from 'components/common/scroll/Scroll'
 
 import CartList from './childComps/CartList.vue'
+import BottomBar from './childComps/BottomBar.vue'
 
 import { mapGetters } from 'vuex'
 
@@ -27,12 +29,16 @@ export default {
   components: {
     Nav,
     CartList,
+    BottomBar,
     Scroll
   },
   computed: {
     ...mapGetters([
       'cartLength'
     ])
+  },
+  activated () {
+    this.$refs.scroll.refresh()
   }
 }
 </script>
@@ -48,6 +54,6 @@ export default {
     z-index: 99;
   }
   .scroll {
-    height: calc(100% - 40px - 52px);
+    height: calc(100% - 40px - 52px - 40px);
   }
 </style>

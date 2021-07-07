@@ -19,4 +19,16 @@ export default {
     height: 100%;
     width: 100%;
   }
+  .check-btn {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #aaa;
+    box-sizing: border-box;
+  }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="cart-list-item">
-    <CheckBtn class="btn" :class="{checked: isChecked}" @click.native="btnClick"></CheckBtn>
+    <CheckBtn :class="{checked: isChecked}" @click.native="btnClick"></CheckBtn>
     <div class="img">
       <img :src="product.img" alt="">
     </div>
@@ -55,18 +55,7 @@ export default {
     font-size: 12px;
     align-items: center;
   }
-  .btn {
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 5px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 2px solid #aaa;
-    box-sizing: border-box;
-  }
+
   .checked {
     background-color: red;
     border-color: red;
