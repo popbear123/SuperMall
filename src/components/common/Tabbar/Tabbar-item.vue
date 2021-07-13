@@ -44,7 +44,9 @@ export default {
     flex: 1;
     text-align: center;
     height: 49px;
-    margin-top: 3px;
+    font-size: 12px;
+    box-sizing: border-box;
+    padding-top: 5px;
   }
   .tabbar-item span {
     font-size: 24px;

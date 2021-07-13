@@ -1,5 +1,5 @@
 <template>
-  <Swiper>
+  <Swiper :banners="banners">
     <SwiperItem v-for="(item, index) in banners" :key="index">
       <a :href="item.link">
         <img :src="item.image" :alt="item.title" @load="swiperLoaded" />
@@ -34,6 +34,7 @@ export default {
     swiperLoaded () {
       if (!this.isLoaded) {
         this.$emit('swiperLoaded')
+        this.$bus.$emit('bannerLoaded')
         this.isLoaded = true
       }
     }

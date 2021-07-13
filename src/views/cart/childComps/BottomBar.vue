@@ -1,13 +1,13 @@
 <template>
   <div class="bottom">
     <div class="allSel">
-      <CheckBtn class="btn"></CheckBtn>
+      <CheckBtn class="btn" :class="{checked: isChecked}" @click.native="allSelClick"></CheckBtn>
       <span>全选</span>
     </div>
     <div class="total">
       合计：{{totalPrice}}
     </div>
-    <div class="calculate">
+    <div class="calculate" @click="calcClick">
       去计算({{calc}})
     </div>
   </div>
@@ -35,6 +35,24 @@ export default {
     },
     calc () {
       return this.$store.state.cartList.filter(item => item.checked).length
+    },
+    isChecked () {
+      if (this.$store.state.cartList.length === 0) return
+      return !this.$store.state.cartList.find(item => !item.checked)
+    }
+  },
+  methods: {
+    allSelClick () {
+      if (this.isChecked) {
+        this.$store.state.cartList.forEach(item => { item.checked = false })
+      } else {
+        this.$store.state.cartList.forEach(item => { item.checked = true })
+      }
+    },
+    calcClick () {
+      if (!this.isChecked) {
+        this.$toast.show('请选择购买的商品')
+      }
     }
   }
 }
@@ -70,5 +88,9 @@ export default {
     text-align: center;
     line-height: 40px;
     color: #fff;
+  }
+  .checked {
+    background-color: red;
+    border-color: red;
   }
 </style>

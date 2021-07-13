@@ -46,7 +46,8 @@ export default {
       UserCommentInfo: {},
       goodsList: [],
       scrollTop: [],
-      getScrollTopDebounce: null
+      getScrollTopDebounce: null,
+      content: ''
     }
   },
   components: {
@@ -153,7 +154,10 @@ export default {
       obj.img = this.topImages[0]
       obj.price = this.GoodsInfo.lowPrice
       obj.id = this.id
-      this.$store.dispatch('addGoods', obj)
+      this.$store.dispatch('addGoods', obj).then(res => {
+        console.log(res)
+        this.$toast.show(res)
+      })
     }
   }
 }

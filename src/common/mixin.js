@@ -1,3 +1,5 @@
+import BackTop from 'components/item/backTop/BackTop'
+
 export const mixin = {
   data () {
     return {
@@ -6,8 +8,6 @@ export const mixin = {
   mounted () {
   }
 }
-
-import BackTop from 'components/item/backTop/BackTop'
 
 export const backTopMixin = {
   data () {

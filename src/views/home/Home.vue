@@ -115,17 +115,21 @@ export default {
       this.$refs.TabControl1.currentIndex = index
       this.$refs.TabControl2.currentIndex = index
     },
+
     scrollPosition (position) {
       this.isShowScrollTop = (-position.y) > 1000
       this.isFixedTabControl = (-position.y) > this.FixedTop
     },
+
     pullingUp () {
       this.getHomeData(this.tabIndex)
     },
+
     swiperLoaded () {
       // console.log(this.$refs.TabControl2.$el.offsetTop)
       this.FixedTop = this.$refs.TabControl2.$el.offsetTop
     },
+
     /**
      * 网络请求相关的方法
      */
@@ -136,6 +140,7 @@ export default {
         this.recommends = res.data.recommend.list
       })
     },
+
     getHomeData (type) {
       getHomeData(type, this.goods[type].page + 1).then(res => {
         // console.log(res)
@@ -164,6 +169,7 @@ export default {
     top: 0;
     right: 0;
     z-index: 99;
+    font-weight: bold;
   }
   .wrapper {
     position: absolute;
